@@ -11,6 +11,7 @@ public class Trigger : MonoBehaviour {
 		StayOn			= 4, // Activate trigger only when stayed on with source
 		ReverseStayOn	= 5, // Deactivate trigger only when stayed on with source
 		NextLevel		= 6, // Load next level
+		RestartLevel	= 7  // Restart the level.
 	}
 	
 	
@@ -95,6 +96,14 @@ public class Trigger : MonoBehaviour {
 				}
 				else
 					Application.LoadLevel(Application.loadedLevel+1);
+				break;
+			case Mode.RestartLevel:
+				if(source != null){
+					if(activator.transform == source.transform || activator.name == source.name + "(Clone)")
+						Application.LoadLevel(Application.loadedLevel);
+				}
+				else
+					Application.LoadLevel(Application.loadedLevel);
 				break;
 			}
 		}

@@ -38,6 +38,8 @@ public class ResponsivePlatformerController : MonoBehaviour {
 			animator.SetBool("Moving", true);
 		else
 			animator.SetBool("Moving", false);
+		if (Input.GetKey("escape"))
+			Application.Quit();
 	}
 	
 	public void Move(){
